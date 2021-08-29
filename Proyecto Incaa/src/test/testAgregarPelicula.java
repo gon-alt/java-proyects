@@ -15,7 +15,7 @@ public class testAgregarPelicula {
 		Pelicula p1 = new Pelicula("ewr", 1);
 		Pelicula p2 = new Pelicula("Rocky", 2);
 		Pelicula p3 = new Pelicula("nm,", 3);
-		Pelicula p4 = new Pelicula("asdasdasd", 4);
+		Pelicula p4 = new Pelicula("nm", 4);
 		
 		List<Pelicula> catalogo = new ArrayList<Pelicula>();	
 		Incaa c1 = new Incaa(catalogo);
