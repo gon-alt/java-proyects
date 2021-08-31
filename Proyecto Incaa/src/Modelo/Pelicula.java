@@ -5,7 +5,13 @@ public class Pelicula {
 	private int idPelicula;
 	//private Genero genero; 
 	
-	//constructor
+	//constructor 1
+	public Pelicula(String pelicula/*, int idPelicula, String genero*/) {
+		this.pelicula = pelicula;
+		//this.idPelicula = idPelicula;
+		//this.genero = genero;
+	}
+	//constructor 2
 	public Pelicula(String pelicula, int idPelicula/*, String genero*/) {
 		this.pelicula = pelicula;
 		this.idPelicula = idPelicula;
