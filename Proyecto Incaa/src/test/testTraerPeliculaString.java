@@ -8,7 +8,7 @@ import Modelo.Pelicula;
 
 public class testTraerPeliculaString {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		
 		//instancio las peliculas para agregar al catalogo
@@ -17,10 +17,8 @@ public class testTraerPeliculaString {
 				Pelicula p3 = new Pelicula("Tiempos violentos");
 				Pelicula p4 = new Pelicula("Forrest Gump");
 
-				//creo q aca instancio la lista catalogo o la inicializo
-				List<Pelicula> catalogo = new ArrayList<Pelicula>();
 				//instancio un catalogo para cargarlo con un lista
-				Incaa c1 = new Incaa(catalogo);
+				Incaa c1 = new Incaa();
 
 				//utilizo el metodo agreagrPelicula para agregar las peliculas al catalogo c1
 				c1.agregarPelicula(p1);

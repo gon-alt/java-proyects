@@ -10,6 +10,10 @@ public class Genero {
 		this.idGenero = idGenero;
 		Genero = genero;
 	}
+	//constructor 2
+		public Genero(String genero) {
+			this.Genero = genero;
+		}
 	
 	
 	//getter and setter
@@ -29,11 +33,7 @@ public class Genero {
 		Genero = genero;
 	}
 	
-	// sobrecarga del metodo traer pelicula
 	
-	public void traerPelicula(Genero genero){
-		
-	}
 	
 	
 	

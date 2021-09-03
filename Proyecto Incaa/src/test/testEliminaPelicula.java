@@ -8,7 +8,7 @@ import Modelo.Pelicula;
 
 public class testEliminaPelicula {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		//instancio las peliculas para agregar al catalogo
 		Pelicula p1 = new Pelicula("Transportador");
