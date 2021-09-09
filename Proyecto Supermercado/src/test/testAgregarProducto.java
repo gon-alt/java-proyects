@@ -7,9 +7,10 @@ public class testAgregarProducto {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		 Supermercado sistema = new Supermercado();
-		 sistema.;
-//		 sistema.eliminatProducto(1);
+		Supermercado sistema = new Supermercado();		
+		sistema.agregarProducto("coca", 10);
+		
+
 	}
 
 }

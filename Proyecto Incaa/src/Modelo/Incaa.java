@@ -1,23 +1,12 @@
 package Modelo;
-
 import java.util.ArrayList;
-
-
 import java.util.List;
-import java.util.Objects;
-
-
 
 public class Incaa {
-	List<Pelicula> catalogo = new ArrayList<Pelicula>();
-
-	
+	List<Pelicula> catalogo = new ArrayList<Pelicula>();	
 
 
-	public Incaa(List<Pelicula> catalogo) {
-		super();
-		this.catalogo = catalogo;
-	}
+	public Incaa() {}
 
 	//getter y setter
 	public List<Pelicula> getCatalogo() {
@@ -29,65 +18,42 @@ public class Incaa {
 	}
 
 
-
-
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(catalogo);
-	}
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Incaa other = (Incaa) obj;
-		return Objects.equals(catalogo, other.catalogo);
-	}
-
-
 	//Si la película existe en la lista lanzar la excepción
-	public void agregarPelicula (Pelicula pelicula) throws Exception{
+	public List<Pelicula> agregarPelicula (Pelicula pelicula) throws Exception{
 		for(int i=0;i<catalogo.size();i++) {
 			if(pelicula.getPelicula().equals(catalogo.get(i).getPelicula()))throw new Exception("Error: Objeto pelicula repetido!!");
 		}
 		catalogo.add(pelicula);		
-		catalogo.set(catalogo.size()-1, pelicula).setIdpelicula(catalogo.size());					
+		catalogo.set(catalogo.size()-1, pelicula).setIdpelicula(catalogo.size());
+		return catalogo;					
 	}	
 
 
 
 	//Si la película no existe devolver null
-	public void traerPelicula (int idPelicula) {
-		int aux = -1;		
+	public Pelicula traerPelicula (int idPelicula){
+		Pelicula peliculaExistente=null;			
 		for (int s=0;s<catalogo.size();s++) {			
 			if((idPelicula)==(catalogo.get(s).getIdpelicula())) {				
-				aux=s;
-			} 
+				peliculaExistente=catalogo.get(s);
+			}
 		}
-		if(aux>=0) {
-			System.out.println(catalogo.get(aux));
-		}else System.out.println("null");
+		return peliculaExistente;
 	}
 
 	//todas las películas que contengan en su título el string partePelicula
-	public void traerPelicula (String partePelicula) {
-		int a=0;
+	public Pelicula traerPelicula (String partePelicula) {
+		Pelicula pelicula=null;
 		for (int i = 0; i < catalogo.size(); i++) {
 			if(catalogo.get(i).getPelicula().contains(partePelicula)) {
-				System.out.println(catalogo.get(i));
-				a++;
+				pelicula=catalogo.get(i);
+				System.out.println(pelicula);			
 			}
 		}
-		if (a==0) {
+		if (pelicula==null) {
 			System.out.println("no se encontraron resultados :(");
-		}
-
+			}
+		return pelicula;
 	}
 
 	//Modificar la película traerPelicula por id, si no existe la película lanzar la excepción, de lo
@@ -105,24 +71,32 @@ public class Incaa {
 
 	//Eliminar la película: traerPelicula por su id, si no existe la película lanzar la excepción, de lo
 	//contrario eliminar el elemento de la lista (remove)
-	public void eliminarPelicula (int idPelicula) {
-		catalogo.remove(idPelicula-1);
-
+	public boolean eliminarPelicula (int idPelicula)throws Exception {
+		boolean eliminar=false;	
+		traerPelicula(idPelicula);
+		if(traerPelicula(idPelicula)==null) {
+			throw new Exception ("la pelicula que quiere eliminar no existe");
+		}
+		for (int i = 0; i <catalogo.size() ; i++) {
+			if(catalogo.get(i).getIdpelicula()==idPelicula) {
+				catalogo.remove(i);
+				eliminar=true;
+			}								
+		}
+		return eliminar;
 	}
 
 	// sobrecarga del metodo traer pelicula
 
-	public void traerPelicula(Genero genero){
-		int a=0;
-		for(int i=0;i<catalogo.size();i++) {
-			if(catalogo.get(i).getGenero()==genero) {
-				System.out.println(catalogo.get(i).toString());
-				a=1;
+	public Pelicula traerPelicula(Genero genero){
+		Pelicula existe=null;
+		for (int i = 0; i < catalogo.size(); i++) {
+			if(catalogo.get(i).getGenero().equals(genero)) {
+				existe=catalogo.get(i);
+				System.out.println(existe);
 			}
 		}
-		if(a==0) {
-			System.out.println("no se encontraron resultados del genero: " + genero.getGenero());
-			}
+		return existe;
 	}
 
 

@@ -13,6 +13,10 @@ public class ItemCarrito {
 		this.producto = producto;
 		this.cantidad = cantidad;
 	}
+	
+	public float calcularSubTotal() {
+		return cantidad * producto.getPrecio(); 
+	}
 
 	public int getIdCarrito() {
 		return idCarrito;

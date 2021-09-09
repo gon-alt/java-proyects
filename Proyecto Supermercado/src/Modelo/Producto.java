@@ -5,12 +5,13 @@ public class Producto {
 	private String producto;
 	private float precio;
 	
+	
 	public Producto(int id_producto, String producto, float precio) {
 		this.id_producto = id_producto;
 		this.producto = producto;
 		this.precio = precio;
 	}
-
+	
 	public int getId_producto() {
 		return id_producto;
 	}

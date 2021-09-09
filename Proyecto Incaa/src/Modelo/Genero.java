@@ -34,6 +34,14 @@ public class Genero {
 	}
 	
 	
+	public boolean equals (Genero genero) {
+		return genero.getGenero().equalsIgnoreCase(Genero);
+	}
+	@Override
+	public String toString() {
+		return "Genero [idGenero=" + idGenero + ", Genero=" + Genero + "]";
+	}
+	
 	
 	
 	

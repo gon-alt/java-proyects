@@ -26,6 +26,15 @@ public class Supermercado {
 		this.abmProducto = abmProducto;
 	}
 	
+	public void agregarProducto(String producto, float ptrcio) {
+		abmProducto.agregarProducto(producto, ptrcio);
+	}
+	
+	public void traerProducto(int idProducto) {
+		abmProducto.traerProducto(idProducto);
+		
+	}
+	
 	public boolean eliminatProducto(int idProducto) {
 		boolean eliminado = false;
 		if(!abmCarrito.productoExistenteEnCarritos(idProducto)) {
@@ -34,5 +43,8 @@ public class Supermercado {
 		return eliminado;
 	}
 	
+	public boolean eliminarCarrito(int idCarrito) throws Exception {
+		return abmCarrito.eliminarCarrito(idCarrito);		
+	}
 	
 }

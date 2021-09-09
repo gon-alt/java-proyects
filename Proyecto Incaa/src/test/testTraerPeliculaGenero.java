@@ -1,8 +1,5 @@
 package test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import Modelo.Genero;
 import Modelo.Incaa;
 import Modelo.Pelicula;
@@ -16,7 +13,7 @@ public class testTraerPeliculaGenero {
 		Genero comedia = new Genero (3,"comedia");
 		Pelicula p1 = new Pelicula("Transportador",accion);
 		Pelicula p2 = new Pelicula("Rocky", drama);
-		Pelicula p3 = new Pelicula("Tiempos violentos", accion);
+		Pelicula p3 = new Pelicula("Tiempos violentos", comedia);
 		Pelicula p4 = new Pelicula("Forrest Gump", drama);
 
 		//instancio un catalogo para cargarlo con un lista
@@ -28,9 +25,8 @@ public class testTraerPeliculaGenero {
 		c1.agregarPelicula(p3);
 		c1.agregarPelicula(p4);
 		
-		System.out.println("las peliculas del genero: drama son: ");
-		c1.traerPelicula(comedia);
-		
+		System.out.println("las peliculas del genero drama son: ");
+		c1.traerPelicula(drama);	
 		
 		
 	}

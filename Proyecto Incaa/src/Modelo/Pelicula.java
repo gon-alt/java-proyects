@@ -45,12 +45,12 @@ public class Pelicula {
 	}
 
 
-	public boolean equals(String pelicula) {
-		return (this.pelicula == pelicula);		
+	public boolean equals(Pelicula pelicula) {
+		return this.pelicula.equalsIgnoreCase(pelicula.getPelicula());		
 	}
 	
 	public boolean equals(int idPelicula) {
-		return (this.idPelicula == idPelicula);		
+		return this.idPelicula==idPelicula ;		
 	}
 
 	@Override
