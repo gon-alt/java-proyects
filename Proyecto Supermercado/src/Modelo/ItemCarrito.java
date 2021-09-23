@@ -16,7 +16,8 @@ public class ItemCarrito {
 	
 	public float calcularSubTotal() {
 		return cantidad * producto.getPrecio(); 
-	}
+	}	
+	
 
 	public int getIdCarrito() {
 		return idCarrito;

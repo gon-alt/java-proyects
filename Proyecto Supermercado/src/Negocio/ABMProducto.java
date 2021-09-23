@@ -1,6 +1,5 @@
 package Negocio;
 
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import Modelo.Producto;
@@ -19,33 +18,52 @@ public class ABMProducto {
 		this.lstProductos = lstProductos;
 	}
 	
-	public boolean agregarProducto(String producto, float precio) {
+	public boolean agregarProducto(String producto, float precio) throws Exception{
 		boolean agregado = false;
+		for (int i = 0; i < lstProductos.size() ; i++) {
+			if(lstProductos.get(i).getProducto().equals(producto)) {
+				throw new Exception("el producto que quiere agragar ya existe");
+			}
+		}		
 		int id;		
 		id = lstProductos.size()+1;		
 		lstProductos.add(new Producto(id, producto, precio));
-		return agregado = true;
+		agregado = true;
+		return agregado;
 	}
 	
-	public String traerProducto(int idProducto) {
-		String producto = null;
+	public Producto traerProducto(int idProducto) {
+		Producto producto = null;
 		for (int i=0;i<lstProductos.size();i++) {
 			if(lstProductos.get(i).getId_producto() == idProducto) {
-				producto=lstProductos.get(i).getProducto();
-			}else producto = null;
+				producto=lstProductos.get(i);
+			}
 		}
 		return producto;
 	}
 
-	public boolean eliminarProducto(int idProducto) {
-		//TODO eliminar el producto de la lista de productos lstProductos 
-		return true;
+	public boolean eliminarProducto(int idProducto) throws Exception{
+		boolean eliminado=false;
+		traerProducto(idProducto);
+		if(traerProducto(idProducto)==null) {
+			throw new Exception("el producto que quiere eliminar no existe");
+		}
+		lstProductos.remove(idProducto-1);
+		eliminado=true;
+		return eliminado;
 	}	
-
+	
+	public boolean modificarProducto(int idProducto, String producto, float precio) throws Exception {
+		boolean productoModificado=false;
+		if(traerProducto(idProducto)==null) {
+			throw new Exception("el producto que quiere modificar no existe");
+		}
+		
+		lstProductos.get(idProducto-1).setProducto(producto);
+		lstProductos.get(idProducto-1).setPrecio(precio);
+		productoModificado=true;
+		return productoModificado;
+				
+	}
 	 
 }
-
-
-
-
-

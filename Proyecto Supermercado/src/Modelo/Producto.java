@@ -1,5 +1,7 @@
 package Modelo;
 
+import java.util.Objects;
+
 public class Producto {
 	private int id_producto;
 	private String producto;
@@ -40,6 +42,24 @@ public class Producto {
 	public String toString() {
 		return "Producto [id_producto=" + id_producto + ", producto=" + producto + ", precio=" + precio + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id_producto, precio, producto);
+	}
+
+	public boolean equals(Producto obj) {
+		boolean retorno=false;
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (this.id_producto == obj.id_producto&& this.producto == obj.getProducto())
+			retorno = true;
+		return retorno;
+	}
+	
+	
 	
 	
 	
